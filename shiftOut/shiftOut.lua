@@ -19,6 +19,11 @@ local dataPin = 3       --GPIO0
 local clockPin = 4      --GPIO2
 local latchPin = nil      --GPIO14
 
+-- used modules
+local string = string
+local gpio = gpio
+setfenv(1,M)
+
 -- implementation
 --setup function, either call with or without paramters to use user specific or default pin config
 function setup(in_dataPin, in_clockPin, in_latchPin)
@@ -72,3 +77,6 @@ function shiftOut(in_bits, in_bitOrder)
     gpio.write(latchPin,gpio.HIGH)
   end
 end
+
+-- return index
+return M
